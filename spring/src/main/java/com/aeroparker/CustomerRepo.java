@@ -1,6 +1,7 @@
 package com.aeroparker;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import com.aeroparker.Customer;
 import java.util.Optional;
 
 public interface CustomerRepo extends JpaRepository<Customer, Long> { //JpaRepository provides CRUD operations

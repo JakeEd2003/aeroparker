@@ -47,4 +47,8 @@ public class Customer {
     @Size(max = 20)
     private String phoneNumber;
 
+    public String getEmailAddress() {
+        return email;
+    }
+
 }
