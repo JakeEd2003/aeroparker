@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"> <!-- use tymeleaf as a template -->
+<head>
+    <title>Customer Registration</title> 
+</head>
+<body>
+    <h2>Customer Registration</h2>
+    <form action="#" th:action="@{/registration}" th:object="${customer}" method="post"> <!-- binds the form to customer object linking fields to properties -->
+        <!-- go through each field like in the Customer code -->
+        <label>Title:</label>
+        <input type="text" th:field="*{title}" required />
+        <br/>
+
+        <label>First Name:</label>
+        <input type="text" th:field="*{firstName}" required />
+        <br/>
+
+        <label>Second Name:</label>
+        <input type="text" th:field="*{lastName}" required />
+        <br/>
+
+        <label>Email Address::</label>
+        <input type="email" th:field="*{email}" required />
+        <span th:if="${fields.hasErrors('email')}" th:errors="*{email}"></span>
+        <br/>
+
+        <label>Address Line 1:</label>
+        <input type="text" th:field="*{addressLine1}" required />
+        <br/>
+
+        <label>Address Line 2:</label>
+        <input type="text" th:field="*{addressLine2}" required />
+        <br/>
+
+        <label>City:</label>
+        <input type="text" th:field="*{city}" required />
+        <br/>
+
+        <label>Postcode:</label>
+        <input type="text" th:field="*{postcode}" required />
+        <br/>
+
+        <label>Phone Number:</label>
+        <input type="text" th:field="*{phoneNumber}" required />
+        <br/>
+
+        <button type="submit">Register</button>
+    </form>
+</body>
+</html>
