@@ -1,5 +1,6 @@
 package com.aeroparker.model;
 
+import java.security.Timestamp;
 import java.time.LocalDateTime;
 
 import jakarta.persistence.*;
@@ -12,7 +13,7 @@ import jakarta.validation.constraints.Size;
 public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) //generated value auto increments for primary key value
-    private Long id;
+    private int id;
 
     @Column(nullable = false, updatable = false)
     private LocalDateTime registered = LocalDateTime.now(); //stores the time when someone registers and can't be updated once set
@@ -31,13 +32,19 @@ public class Customer {
     @NotBlank
     @Column(nullable = false, length = 50)
     @Size(max = 50)
-    private String firstName, secondName;
+    private String firstName, lastName;
 
     @NotBlank
     @Column(nullable = false, length = 255)
     @Size(max = 255)
-    private String addressLine1, addressLine2;
+    private String addressLine1;
 
+    @Column(nullable = true, length = 255)
+    @Size(max = 255)
+    private String addressLine2;
+
+    @Column(nullable = true, length = 255)
+    @Size(max = 255)
     private String city; //city is an optional input
 
     @NotBlank
@@ -47,8 +54,76 @@ public class Customer {
     @Size(max = 20)
     private String phoneNumber;
 
+
+    //declare getters
+    public int getId() {
+        return id;
+    }
+    public LocalDateTime getRegistered(){
+        return registered;
+    }
     public String getEmailAddress() {
         return emailAddress;
     }
+    public String getTitle() {
+        return title;
+    }
+    public String getFirstName() {
+        return firstName;
+    }
+    public String getLastName() {
+        return lastName;
+    }
+    public String getAddressLine1() {
+        return addressLine1;
+    }
+    public String getAddressLine2() {
+        return addressLine2;
+    }
+    public String getCity() {
+        return city;
+    }
+    public String getPostcode() {
+        return postcode;
+    }
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
 
+
+
+    //declare setters
+    public void setId(int id) {
+        this.id = id;
+    }
+    public void setRegistered(LocalDateTime registered){
+        this.registered = registered;
+    }
+    public void setEmailAddress(String emailAddress) {
+        this.emailAddress = emailAddress;
+    }
+    public void setTitle(String title) {
+        this.title = title;
+    }
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+    public void setLastName(String lastName) {
+        this.lastName =lastName;
+    }
+    public void setAddressLine1(String addressLine1) {
+        this.addressLine1 = addressLine1;
+    }
+    public void setAddressLine2(String addressLine2) {
+        this.addressLine2 = addressLine2;
+    }
+    public void setCity(String city) {
+        this.city = city;
+    }
+    public void setPostcode(String postcode) {
+        this.postcode = postcode;
+    }
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
 }

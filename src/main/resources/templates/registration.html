@@ -20,8 +20,8 @@
         <br/>
 
         <label>Email Address::</label>
-        <input type="email" th:field="*{email}" required />
-        <span th:if="${fields.hasErrors('email')}" th:errors="*{email}"></span>
+        <input type="email" th:field="*{emailAddress}" required />
+        <span th:if="${#fields.hasErrors('emailAddress')}" th:errors="*{emailAddress}"></span>
         <br/>
 
         <label>Address Line 1:</label>
