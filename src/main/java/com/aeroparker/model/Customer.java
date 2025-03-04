@@ -20,7 +20,7 @@ public class Customer {
     @Email
     @NotBlank
     @Column(name = "email_address", unique = true, nullable = false) //ensures email isn't blank and is unique
-    private String email;
+    private String emailAddress;
 
     @NotBlank
     @Column(nullable = false, length = 5)
@@ -48,7 +48,7 @@ public class Customer {
     private String phoneNumber;
 
     public String getEmailAddress() {
-        return email;
+        return emailAddress;
     }
 
 }

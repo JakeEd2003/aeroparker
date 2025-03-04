@@ -28,7 +28,7 @@ public class RegistrationCont {
     @PostMapping("/registration")
     public String registerCustomer(@Valid @ModelAttribute Customer customer, BindingResult result, Model model){
         //check if email already exists as this has to be unique
-        Optional<Customer> existingCust = customerRepo.findbyEmailAddressIgnoreCase(customer.getEmailAddress());
+        Optional<Customer> existingCust = customerRepo.findByEmailAddressIgnoreCase(customer.getEmailAddress());
         if (existingCust.isPresent()){
             result.rejectValue("email", "error.customer", "Email has already been registered!");;
         }
