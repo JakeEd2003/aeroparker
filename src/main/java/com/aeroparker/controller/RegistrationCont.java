@@ -30,16 +30,17 @@ public class RegistrationCont {
         //check if email already exists as this has to be unique
         Optional<Customer> existingCust = customerRepo.findByEmailAddressIgnoreCase(customer.getEmailAddress());
         if (existingCust.isPresent()){
-            result.rejectValue("email", "error.customer", "Email has already been registered!");;
+            result.rejectValue("emailAddress", "error.customer", "Email has already been registered!");;
         }
         //if not valid, display the form again
         if (result.hasErrors()){
-            return "registrationForm";
+            return "registration";
         }
 
         //if valid, save the customer and load the success page
+        System.out.println(customer); // Check if the addressLine1 is set
         customerRepo.save(customer);
-        return "successPage";
+        return "success";
     }   
 
 }

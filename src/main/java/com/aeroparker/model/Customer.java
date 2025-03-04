@@ -15,7 +15,8 @@ public class Customer {
     @GeneratedValue(strategy = GenerationType.IDENTITY) //generated value auto increments for primary key value
     private int id;
 
-    @Column(nullable = false, updatable = false)
+    
+    @Column(name= "registered", nullable = false, updatable = false)
     private LocalDateTime registered = LocalDateTime.now(); //stores the time when someone registers and can't be updated once set
 
     @Email
@@ -30,16 +31,21 @@ public class Customer {
 
     //first and last name are the same length with the same constraints so can be included together
     @NotBlank
-    @Column(nullable = false, length = 50)
+    @Column(name= "first_name", nullable = false, length = 50)
     @Size(max = 50)
-    private String firstName, lastName;
+    private String firstName;
 
     @NotBlank
-    @Column(nullable = false, length = 255)
+    @Column(name= "last_name", nullable = false, length = 50)
+    @Size(max = 50)
+    private String lastName;
+
+    @NotBlank
+    @Column(name= "address_line_1",nullable = false, length = 255)
     @Size(max = 255)
     private String addressLine1;
 
-    @Column(nullable = true, length = 255)
+    @Column(name= "address_line_2", nullable = true, length = 255)
     @Size(max = 255)
     private String addressLine2;
 
@@ -51,6 +57,7 @@ public class Customer {
     @Size(max = 10)
     private String postcode;
 
+    @Column(name= "phone_number")
     @Size(max = 20)
     private String phoneNumber;
 
