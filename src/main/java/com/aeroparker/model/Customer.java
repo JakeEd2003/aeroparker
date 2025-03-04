@@ -1,4 +1,4 @@
-package com.aeroparker;
+package com.aeroparker.model;
 
 import java.time.LocalDateTime;
 

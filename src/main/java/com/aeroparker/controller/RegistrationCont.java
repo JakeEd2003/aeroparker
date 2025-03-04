@@ -1,4 +1,4 @@
-package com.aeroparker;
+package com.aeroparker.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -8,6 +8,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import jakarta.validation.Valid;
+import com.aeroparker.repository.CustomerRepo;
+import com.aeroparker.model.Customer;
+
 
 import java.util.Optional;
 
